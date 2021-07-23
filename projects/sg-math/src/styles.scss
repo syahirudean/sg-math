@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~bootstrap-icons/font/bootstrap-icons.css";
+
+$primary: #003399;
+/* For all: */
+.main {
+  margin: 80px 0px 0px 0px;
+  min-height: 100vh;
+  height: auto;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* For tablets: */
+@media only screen and (min-width: 576px) {
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+}

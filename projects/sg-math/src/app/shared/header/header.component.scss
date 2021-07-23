@@ -1,0 +1,20 @@
+.navbar-brand {
+  width: 5em;
+}
+.hide-mobile {
+  display: none;
+}
+
+/* For tablets: */
+@media only screen and (min-width: 576px) {
+}
+
+/* For desktop: */
+@media only screen and (min-width: 768px) {
+  .hide-mobile {
+    display: block;
+  }
+  .hidden-lg {
+    display: none;
+  }
+}

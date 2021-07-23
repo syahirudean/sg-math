@@ -1,0 +1,26 @@
+<header class="py-1 bg-dark text-white shadow">
+  <div class="container-md p-0 pe-2">
+    <div class="d-flex flex-row bd-highlight justify-content-between p-0">
+      <button class="btn btn-dark me-2 m-md-0 align-self-center hidden-lg" (click)="openModal('side-nav')"><i
+          class="bi bi-list h2"></i></button>
+        <img class="navbar-brand pointer" src="../../../assets/sgmath_logo.png" routerLink="/">
+
+      <div class="d-flex bd-highlight flex-row align-self-center ms-auto">
+        <div class="ps-2 bd-highlight">
+          <button type="button" class="btn btn-warning" routerLink="question/ask">Ask Question</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!--SIDE NAV-->
+<jw-modal id="side-nav">
+  <div class="d-flex bd-highlight bg-dark p-2 py-3">
+    <h4 class="text-white p-0 m-0">SG Math Forum</h4>
+  </div>
+
+  <button type="button" class="btn btn-block btn-outline-warning">Log in</button>
+  <br>
+  <button type="button" class="btn btn-block btn-primary">Create account</button>
+</jw-modal>

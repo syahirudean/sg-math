@@ -2,5 +2,133 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
-  "projects": {}
+  "projects": {
+    "sg-math": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "projects/sg-math",
+      "sourceRoot": "projects/sg-math/src",
+      "prefix": "sgmath",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/sg-math",
+            "index": "projects/sg-math/src/index.html",
+            "main": "projects/sg-math/src/main.ts",
+            "polyfills": "projects/sg-math/src/polyfills.ts",
+            "tsConfig": "projects/sg-math/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "projects/sg-math/src/favicon.ico",
+              "projects/sg-math/src/assets"
+            ],
+            "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "projects/sg-math/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/sg-math/src/environments/environment.ts",
+                  "with": "projects/sg-math/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "sg-math:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "sg-math:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "sg-math:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/sg-math/src/test.ts",
+            "polyfills": "projects/sg-math/src/polyfills.ts",
+            "tsConfig": "projects/sg-math/tsconfig.spec.json",
+            "karmaConfig": "projects/sg-math/karma.conf.js",
+            "assets": [
+              "projects/sg-math/src/favicon.ico",
+              "projects/sg-math/src/assets"
+            ],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "projects/sg-math/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/sg-math/tsconfig.app.json",
+              "projects/sg-math/tsconfig.spec.json",
+              "projects/sg-math/e2e/tsconfig.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/sg-math/e2e/protractor.conf.js",
+            "devServerTarget": "sg-math:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "sg-math:serve:production"
+            }
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": "9f52175a-594b-47f0-b730-d16caf27e65c"
+  },
+  "defaultProject": "sg-math"
 }
